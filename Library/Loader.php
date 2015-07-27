@@ -5,7 +5,7 @@ function __autoload($class)
 {
     $dirs = array(
         'Routers/',
-        'lib/',
+        'Library/',
     );
 
     foreach ($dirs as $dir) {

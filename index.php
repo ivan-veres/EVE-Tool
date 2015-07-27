@@ -5,7 +5,7 @@
  * @author: Ivan Vereš
  */
 
-require_once 'lib/Loader.php';
+require_once 'Library/Loader.php';
 
 // Instantiate Router class
 $route = new Router();
