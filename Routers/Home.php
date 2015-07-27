@@ -18,7 +18,6 @@ class Home extends Route
      */
     public function index()
     {
-        $this->view->msg = 'Home/Index';
         $this->view->render('home');
     }
 }
