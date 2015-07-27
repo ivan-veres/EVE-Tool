@@ -5,7 +5,9 @@
  * @author: Ivan Vereš
  */
 
-require_once 'Library/Loader.php';
+define('BASE_PATH', dirname(dirname(__FILE__)) . '/');
+
+require_once '../Library/Loader.php';
 
 // Instantiate Router class
 $route = new Router();

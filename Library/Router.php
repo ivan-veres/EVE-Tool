@@ -46,7 +46,7 @@ class Router
                 $this->_method = $action[1];
 
                 // Calls corresponding controller and action with params
-                if(file_exists('Routers/' . $this->_router . '.php')) {
+                if(file_exists(BASE_PATH . 'Routers/' . $this->_router . '.php')) {
                     $this->_router = new $this->_router;
                     if (method_exists($this->_router, $this->_method)) {
                         call_user_func_array(array($this->_router, $this->_method), $this->_params);
