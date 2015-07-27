@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class Home
+ * @author: Ivan Vereš
+ */
+
 class Home extends Route
 {
 
@@ -8,9 +13,12 @@ class Home extends Route
         parent::__construct();
     }
 
+    /**
+     *  All routes must have an index() function
+     */
     public function index()
     {
-        $this->view->msg = 'Hello World!';
+        $this->view->msg = 'Home/Index';
         $this->view->render('home');
     }
 }
