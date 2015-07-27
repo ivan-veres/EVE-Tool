@@ -40,12 +40,12 @@ class Router
         foreach ($this->_url as $key => $value) {
             if (preg_match("#^$value$#", $url)) {
 
-                // Finds controller and action
+                // Finds router and action
                 $action = explode('#', $this->_action[$key]);
                 $this->_router = $action[0];
                 $this->_method = $action[1];
 
-                // Calls corresponding controller and action with params
+                // Calls corresponding router and action with params
                 if(file_exists(BASE_PATH . 'Routers/' . $this->_router . '.php')) {
                     $this->_router = new $this->_router;
                     if (method_exists($this->_router, $this->_method)) {
