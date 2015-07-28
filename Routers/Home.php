@@ -18,6 +18,6 @@ class Home extends Route
      */
     public function index()
     {
-        $this->view->render('home');
+        $this->view->render('home/home');
     }
 }

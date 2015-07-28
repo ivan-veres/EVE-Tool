@@ -21,7 +21,7 @@ class View
 
     /**
      * Renders the template file and router associated view
-     * @param $name Name of the view file
+     * @param $name
      */
     public function render($name)
     {
