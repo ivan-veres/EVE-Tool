@@ -12,6 +12,15 @@ require_once '../Library/Loader.php';
 // Instantiate Router class
 $route = new Router();
 
+$db = new Database();
+
+// Connect to the database
+$db->connect(array(
+    'host'      => 'localhost',
+    'dbname'    => 'industry-tool',
+    'charset'   => 'utf8'
+), DB_USER, DB_PASSWORD);
+
 // Add routes (url, router#method)
 $route->add('/', 'home#index');
 $route->add('/login', 'login#index');

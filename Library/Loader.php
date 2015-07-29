@@ -7,6 +7,7 @@ function __autoload($class)
         'Routers/',
         'Library/',
         'Library/Login/',
+        'Library/Database/',
         '',
     );
 
