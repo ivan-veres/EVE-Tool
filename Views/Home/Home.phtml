@@ -1,1 +1,3 @@
-<p><?php echo $this->msg; ?></p>
+<?php foreach($this->user as $key => $value) : ?>
+<p><?php echo $key . ': ' . $value ?></p>
+<?php endforeach ?>
