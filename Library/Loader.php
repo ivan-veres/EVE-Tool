@@ -6,6 +6,7 @@ function __autoload($class)
     $dirs = array(
         'Routers/',
         'Library/',
+        'Library/Database/',
         '',
     );
 
