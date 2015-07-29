@@ -2,7 +2,7 @@
 
 define('DB_HOST', 'localhost');
 
-define('DB_USER', 'yourusername');
+define('DB_USER', 'root');
 
-define('DB_PASSWORD', 'yourpassword');
+define('DB_PASSWORD', 'dragonball');
 

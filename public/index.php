@@ -17,7 +17,7 @@ $db = new Database();
 // Connect to the database
 $db->connect(array(
     'host'      => DB_HOST,
-    'dbname'    => 'database_name',
+    'dbname'    => 'industry-tool',
     'charset'   => 'utf8'
 ), DB_USER, DB_PASSWORD);
 
