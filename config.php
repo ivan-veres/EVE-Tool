@@ -1,5 +1,8 @@
 <?php
 
-define('DB_USER', 'root');
+define('DB_HOST', 'localhost');
 
-define('DB_PASSWORD', 'dragonball');
+define('DB_USER', 'yourusername');
+
+define('DB_PASSWORD', 'yourpassword');
+
