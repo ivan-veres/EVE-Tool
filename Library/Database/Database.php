@@ -18,6 +18,8 @@ class Database extends PDO
         $this->_params['charset'] = DB_CHARSET;
         $this->_username = DB_USER;
         $this->_password = DB_PASSWORD;
+
+        $this->connect($this->_params, $this->_username, $this->_password);
     }
 
 
@@ -58,8 +60,6 @@ class Database extends PDO
 
     public function query($sql, $params)
     {
-        $this->connect($this->_params, $this->_username, $this->_password);
-
         $sth = $this->_pdo->prepare($sql);
 
         $params = is_array($params) ? $params : [$params];
@@ -70,6 +70,19 @@ class Database extends PDO
             die($e->getMessage());
         }
         return $sth->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function insert($sql, $params)
+    {
+        $sth = $this->_pdo->prepare($sql);
+
+        $params = is_array($params) ? $params : [$params];
+
+        try {
+            $sth->execute($params);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 
     public static function getInstance()
