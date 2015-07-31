@@ -18,9 +18,6 @@ class Home extends Route
      */
     public function index()
     {
-        $this->view->user = $this->db->query('SELECT * FROM users', '');
-        $this->view->username = $this->view->user['username'];
-
         $this->view->render('home/home');
     }
 }
