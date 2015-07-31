@@ -6,6 +6,4 @@
 ### Setup
 
 1. **config.php** 
-   * set DB_HOST, DB_USER and DB_PASS
-2. **index.php** 
-   * set database name by replacing 'database_name' in associative array
+   * set DB_HOST, DB_USER, DB_PASSWORD, DB_CHARSET, DB_NAME
