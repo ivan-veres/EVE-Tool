@@ -72,7 +72,7 @@ class Database extends PDO
         return $sth->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getInstance()
+    public static function getInstance()
     {
         if (null === self::$_instance) {
             self::$_instance = new self;
