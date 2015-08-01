@@ -28,7 +28,7 @@ class Validate
                 if (!preg_match('/^[a-z\d!@#$%]{4,12}$/i', $this->password)) {
                     return false;
                 }
-                $valid = false;
+                $valid = true;
             }
         }
         return $valid;

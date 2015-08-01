@@ -4,17 +4,21 @@
  * Class Login
  * @author: Ivan Vereš
  */
-
 class Login extends Route
 {
 
     public function __construct()
     {
         parent::__construct();
+        Session::start();
     }
 
     public function index()
     {
+        if (isset($_SESSION['user'])) {
+            header('Location: /');
+        }
+        $this->view->ses = $_SESSION;
         $this->view->render('login/login');
     }
 
@@ -22,22 +26,38 @@ class Login extends Route
     {
         $this->validate = new Validate;
 
-        //if ($this->validate->isValid($_POST)) {
-            $this->username = $_POST['username'];
-            $this->password = $_POST['password'];
-        //}
+        if (!$this->validate->isValid($_POST)) {
+            return header('Location: /login');
+        }
+
+        $this->username = $_POST['username'];
+        $this->password = $_POST['password'];
 
         try {
             $this->user = $this->db->query('SELECT * FROM users WHERE username = :username', array('username' => $this->username));
 
-            if ($this->user['password'] . ' ??? ' . md5($this->username . $this->password)) {
-                header('Location: http://ind2.dev', flase);
+            if ($this->user['password'] === md5($this->username . $this->password)) {
+                Session::start();
+                Session::set('user', $this->user['username']);
+                Session::set('role', $this->user['role']);
+
+                $this->db->insert('UPDATE users SET last_login = :last WHERE id = :id', array(
+                    'last' => date('Y-m-d H:i:s', time()),
+                    'id' => $this->user['id']
+                ));
+                header('Location: /');
+            } else {
+                return header('Location: /login');
             }
-
-
-        } catch(Exception $e) {
-
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
-        $this->view->render('login/submit');
+    }
+
+    public function logout()
+    {
+        Session::destroy();
+
+        header('Location: /');
     }
 }

@@ -8,6 +8,7 @@ function __autoload($class)
         'Library/',
         'Library/Login/',
         'Library/Database/',
+        'Library/Session/',
         '',
     );
 

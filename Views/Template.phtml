@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>Industry Tool V2</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/industrytool.css">
 </head>
@@ -28,11 +28,22 @@
                 <li>
                     <a href="/contact" target="_top">Contact</a>
                 </li>
-                <li>
-                    <a href="/login" target="_top">Login</a>
-                </li>
+                <?php if (!isset($_SESSION['user'])): ?>
+                    <li>
+                        <a href="/login" target="_top">Login</a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a href="/logout" target="_top">Logout</a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'owner'): ?>
+                    <li>
+                        <a href="/admin" target="_top">Admin</a>
+                    </li>
+                <?php endif; ?>
                 <li class="welcome">
-                    <p>Welcome, admin!</p>
+                    <p>Welcome, <?php echo isset($_SESSION['user']) ? $_SESSION['user'] . '!' : 'guest!'; ?></p>
                 </li>
             </ul>
         </nav>

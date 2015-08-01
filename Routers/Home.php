@@ -11,6 +11,7 @@ class Home extends Route
     public function __construct()
     {
         parent::__construct();
+        Session::start();
     }
 
     /**
@@ -18,6 +19,7 @@ class Home extends Route
      */
     public function index()
     {
-        $this->view->render('home/home');
+        $this->view->ses = $_SESSION;
+        return $this->view->render('home/home');
     }
 }
