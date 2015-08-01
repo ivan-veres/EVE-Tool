@@ -21,10 +21,10 @@ class Register extends Route
         $this->validate = new Validate;
 
         if (!$this->validate->isValid($_POST) || !$this->validate->isValidEmail($_POST))
-            return header('Location: /register');
+            header('Location: /register');
 
         $this->email = $_POST['email'];
-        $this->username = $_POST['username'];
+        $this->username = strtolower($_POST['username']);
         $this->password = $_POST['password'];
 
 

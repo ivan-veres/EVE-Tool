@@ -21,6 +21,7 @@ class Home extends Route
     public function index()
     {
         $this->view->ses = $_SESSION;
+        $this->view->md5 = strlen(hash('sha256', 'ivan' .  time()));
         return $this->view->render('home/home');
     }
 }
