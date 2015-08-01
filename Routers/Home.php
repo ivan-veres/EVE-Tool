@@ -12,6 +12,7 @@ class Home extends Route
     {
         parent::__construct();
         Session::start();
+        Session::set('active', 'home');
     }
 
     /**

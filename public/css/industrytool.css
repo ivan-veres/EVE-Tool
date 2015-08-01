@@ -35,6 +35,11 @@ nav li a {
     transition: .3s background-color;
 }
 
+.active {
+    background-color: #ffa600;
+    color: #394655;
+}
+
 .welcome {
     display: none;
 }

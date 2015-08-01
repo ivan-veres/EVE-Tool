@@ -20,5 +20,8 @@ $route->add('/', 'home#index');
 $route->add('/login', 'login#index');
 $route->add('/login/submit', 'login#submit');
 $route->add('/logout', 'login#logout');
+$route->add('/about', 'about#index');
+$route->add('/contact', 'contact#index');
+$route->add('/admin', 'admin#index');
 
 $route->dispatch();
