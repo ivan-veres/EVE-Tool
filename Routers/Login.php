@@ -67,18 +67,22 @@ class Login extends Route
             try {
                 $hash = hash('sha256', $_POST['email'] . time());
                 $this->user = $this->db->query('SELECT id FROM users WHERE email = :email', array('email' => $_POST['email']));
-                if (null != $this->user['id']) {
+                if ($this->user['id'] != false) {
                     $this->db->insert('UPDATE users SET recover = :hash WHERE id = :id',
                         array(
                             'hash' => $hash,
                             'id' => $this->user['id']));
 
                     mail($_POST['email'], 'Password recovery', "To reset your password visit this link: http://ind2.dev/recover/password/$hash");
+
+                    // TODO: Flash msg = Link to reset your password has been sent
                 } else {
+
+                    // TODO: Flash msg = Email You specified does not exist in our system
                     header('Location: /login/forgot');
                 }
 
-                // TODO: Flash message = Link to reset your password has been sent
+
             } catch (Exception $e) {
                 die($e->getMessage());
             }

@@ -27,5 +27,6 @@ $route->add('/admin', 'admin#index');
 $route->add('/register', 'register#index');
 $route->add('/register/submit', 'register#submit');
 $route->add('/recover/password', 'recover#password');
+$route->add('/recover/reset', 'recover#reset');
 
 $route->dispatch();
