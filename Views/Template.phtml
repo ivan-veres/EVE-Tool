@@ -30,7 +30,7 @@
                 </li>
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li>
-                        <a href="/login" target="_top">Login</a>
+                        <a href="/login" target="_top" <?php echo $_SESSION['active'] == 'login' ?  "class='active'"  : ''; ?>>Login</a>
                     </li>
                 <?php else: ?>
                     <li>

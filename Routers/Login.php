@@ -11,6 +11,7 @@ class Login extends Route
     {
         parent::__construct();
         Session::start();
+        Session::set('active', 'login');
     }
 
     public function index()
