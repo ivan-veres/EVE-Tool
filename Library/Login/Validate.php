@@ -11,10 +11,10 @@ class Validate
 
             if (array_key_exists('username', $post)) {
 
-                $this->username = $post['username'];
+                $username = $post['username'];
 
                 // Username must be 3-12 characters long and should contain a-z, 0-9 and underscore '_'
-                if (!preg_match('/^[a-z\d_]{3,12}$/i', $this->username)) {
+                if (!preg_match('/^[a-z\d_]{3,12}$/i', $username)) {
                     return false;
                 }
                 $valid = true;
@@ -22,10 +22,10 @@ class Validate
 
             if (array_key_exists('password', $post)) {
 
-                $this->password = $post['password'];
+                $password = $post['password'];
 
                 // password must be 4-12 characters long and should contain a-z, 0-9, !, #, $, %
-                if (!preg_match('/^[a-z\d!@#$%]{4,12}$/i', $this->password)) {
+                if (!preg_match('/^[a-z\d!@#$%]{4,12}$/i', $password)) {
                     return false;
                 }
                 $valid = true;
@@ -48,5 +48,16 @@ class Validate
             }
         }
         return true;
+    }
+
+    public function isValidPassword($password)
+    {
+        if (!empty($password)) {
+            if (preg_match('/^[a-z\d!@#$%]{4,12}$/i', $password)) {
+                return true;
+            }
+        }
+        return false;
+
     }
 }
