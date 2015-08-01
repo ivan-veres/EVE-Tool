@@ -36,8 +36,12 @@ class Router
         // Add starting slash, trim leading slash
         $url = isset($_GET['url']) ? '/' . rtrim($_GET['url'], '/') : '/' ;
         if (isset($_GET['url'])) {
-            $this->_params = explode('/', $_GET['url'])[2] ? explode('/', $_GET['url'])[2] : array();
+            $url = explode('/', $url);
+            $this->_params[] = isset($url[3]) ? $url[3] : '';
+            unset($url[3]);
+            $url = implode('/', $url);
         }
+        
         foreach ($this->_url as $key => $value) {
             if (preg_match("#^$value$#", $url)) {
 
