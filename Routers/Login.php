@@ -27,9 +27,8 @@ class Login extends Route
     {
         $this->validate = new Validate;
 
-        if (!$this->validate->isValid($_POST)) {
-            return header('Location: /login');
-        }
+        if (!$this->validate->isValid($_POST))
+            header('Location: /login');
 
         $this->username = $_POST['username'];
         $this->password = $_POST['password'];
@@ -48,7 +47,7 @@ class Login extends Route
                 ));
                 header('Location: /');
             } else {
-                return header('Location: /login');
+                header('Location: /login');
             }
         } catch (Exception $e) {
             die($e->getMessage());

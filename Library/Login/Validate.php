@@ -19,7 +19,7 @@ class Validate
                 }
                 $valid = true;
             }
-            
+
             if (array_key_exists('password', $post)) {
 
                 $this->password = $post['password'];
@@ -32,5 +32,21 @@ class Validate
             }
         }
         return $valid;
+    }
+
+    public function isValidEmail($post)
+    {
+        if (!empty($post)) {
+
+            if (array_key_exists('email', $post)) {
+
+                $this->email = $_POST['email'];
+
+                if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

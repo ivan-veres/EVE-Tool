@@ -23,5 +23,7 @@ $route->add('/logout', 'login#logout');
 $route->add('/about', 'about#index');
 $route->add('/contact', 'contact#index');
 $route->add('/admin', 'admin#index');
+$route->add('/register', 'register#index');
+$route->add('/register/submit', 'register#submit');
 
 $route->dispatch();
