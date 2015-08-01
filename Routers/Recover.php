@@ -10,7 +10,9 @@ class Recover extends Route
         Session::set('active', '');
     }
 
-    public function index() {}
+    public function index()
+    {
+    }
 
     public function password($uid)
     {
@@ -49,8 +51,8 @@ class Recover extends Route
                 if (null != $this->user) {
                     $this->db->insert('UPDATE users SET password = :pass, recover = NULL WHERE id = :id',
                         array(
-                            'id'    => $this->user['id'],
-                            'pass'  => md5($this->user['username'].$password)
+                            'id' => $this->user['id'],
+                            'pass' => md5($this->user['username'] . $password)
                         ));
                 }
             } catch (PDOException $e) {
@@ -62,7 +64,7 @@ class Recover extends Route
             return header('Location: /login');
         }
 
-        // TODO: Flash msg = Something went wrong!
+        // TODO: Flash msg = Something went wrong! Please try again!
 
         header('Location: /');
     }
