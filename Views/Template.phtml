@@ -13,24 +13,41 @@
 </head>
 <body>
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 <div class="container">
     <header>
         <nav>
+            <div class="header-bar">
+                <ul>
+                    <li class="back">
+                        <a><img src="/img/back.png"/> </a>
+                    </li>
+                    <li class="home">
+                        <a><img src="/img/logo.png"/></a>
+                    </li>
+                    <li class="login">
+                        <a><img src="/img/login.png"/></a>
+                    </li>
+                </ul>
+            </div>
             <ul>
+                <?php $active = $_SESSION['active'] ?>
                 <li>
-                    <a href="/" target="_top" <?php echo $_SESSION['active'] == 'home' ?  "class='active'"  : ''; ?>>Home</a>
+                    <a href="/" target="_top" <?php echo $active == 'home' ? "class='active'" : ''; ?>>Home</a>
                 </li>
                 <li>
-                    <a href="/about" target="_top" <?php echo $_SESSION['active'] == 'about' ?  "class='active'"  : ''; ?>>About</a>
+                    <a href="/about" target="_top" <?php echo $active == 'about' ? "class='active'" : ''; ?>>About</a>
                 </li>
                 <li>
-                    <a href="/contact" target="_top" <?php echo $_SESSION['active'] == 'contact' ?  "class='active'"  : ''; ?>>Contact</a>
+                    <a href="/contact"
+                       target="_top" <?php echo $active == 'contact' ? "class='active'" : ''; ?>>Contact</a>
                 </li>
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li>
-                        <a href="/login" target="_top" <?php echo $_SESSION['active'] == 'login' ?  "class='active'"  : ''; ?>>Login</a>
+                        <a href="/login"
+                           target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>
                     </li>
                 <?php else: ?>
                     <li>
@@ -39,11 +56,11 @@
                 <?php endif; ?>
                 <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'owner'): ?>
                     <li>
-                        <a href="/admin" <?php echo $_SESSION['active'] == 'admin' ?  "class='active'"  : ''; ?>>Admin</a>
+                        <a href="/admin" <?php echo $_SESSION['active'] == 'admin' ? "class='active'" : ''; ?>>Admin</a>
                     </li>
                 <?php endif; ?>
                 <li class="welcome">
-                    <p>Welcome, <?php echo isset($_SESSION['user']) ? $_SESSION['user'] . '!' : 'guest!'; ?></p>
+                    <p>Welcome, <?php echo $_SESSION['user'] ? $_SESSION['user'] . '!' : 'guest!'; ?></p>
                 </li>
             </ul>
         </nav>
