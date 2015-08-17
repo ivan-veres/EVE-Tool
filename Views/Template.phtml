@@ -19,19 +19,6 @@
 <div class="container">
     <header>
         <nav>
-            <div class="header-bar">
-                <ul>
-                    <li class="back">
-                        <a><img src="/img/back.png"/> </a>
-                    </li>
-                    <li class="home">
-                        <a><img src="/img/logo.png"/></a>
-                    </li>
-                    <li class="login">
-                        <a><img src="/img/login.png"/></a>
-                    </li>
-                </ul>
-            </div>
             <ul>
                 <?php $active = $_SESSION['active'] ?>
                 <li>
@@ -44,7 +31,7 @@
                     <a href="/contact"
                        target="_top" <?php echo $active == 'contact' ? "class='active'" : ''; ?>>Contact</a>
                 </li>
-                <?php if (!isset($_SESSION['user'])): ?>
+                <?php if (!isset($_SESSION['user'])) : ?>
                     <li>
                         <a href="/login"
                            target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>

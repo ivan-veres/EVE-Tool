@@ -13,7 +13,7 @@ header {
 }
 
 nav ul {
-    display: none;
+    display: block;
 }
 
 .header-bar {
@@ -35,23 +35,6 @@ nav ul {
     width: 64px;
     border-bottom: none;
     display: inline-block;
-}
-
-.header-bar li.home {
-    margin: 0 auto;
-    width: 100%;
-}
-
-.header-bar li.login {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.header-bar li.back {
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .wrap {
