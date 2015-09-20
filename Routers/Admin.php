@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class Admin
+ * @author: Ivan Vereš
+ */
 
 class Admin extends Route
 {
@@ -7,7 +11,6 @@ class Admin extends Route
     public function __construct()
     {
         parent::__construct();
-        Session::start();
         Session::set('active', 'admin');
     }
 

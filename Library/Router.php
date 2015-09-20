@@ -41,7 +41,7 @@ class Router
             unset($url[3]);
             $url = implode('/', $url);
         }
-        
+
         foreach ($this->_url as $key => $value) {
             if (preg_match("#^$value$#", $url)) {
 

@@ -4,20 +4,20 @@
  * Class Login
  * @author: Ivan Vereš
  */
+
 class Login extends Route
 {
 
     public function __construct()
     {
         parent::__construct();
-        Session::start();
         Session::set('active', 'login');
     }
 
     public function index()
     {
         if (isset($_SESSION['user'])) {
-            header('Location: /');
+            $this->redirect('/');
         }
         $this->view->ses = $_SESSION;
         $this->view->render('login/login');
@@ -28,7 +28,7 @@ class Login extends Route
         $this->validate = new Validate;
 
         if (!$this->validate->isValid($_POST))
-            header('Location: /login');
+            $this->redirect('/login');
 
         $this->username = $_POST['username'];
         $this->password = $_POST['password'];
@@ -45,9 +45,10 @@ class Login extends Route
                     'last' => date('Y-m-d H:i:s', time()),
                     'id' => $this->user['id']
                 ));
-                header('Location: /');
+                $this->redirect('/');
             } else {
-                header('Location: /login');
+                // TODO: Flash msg = Wrong credentials!
+                $this->redirect('/login');
             }
         } catch (Exception $e) {
             die($e->getMessage());
@@ -58,7 +59,7 @@ class Login extends Route
     {
         Session::destroy();
 
-        header('Location: /');
+        $this->redirect('/');
     }
 
     public function forgot()
@@ -79,7 +80,7 @@ class Login extends Route
                 } else {
 
                     // TODO: Flash msg = Email You specified does not exist in our system
-                    header('Location: /login/forgot');
+                    $this->redirect('/login/forgot');
                 }
 
 

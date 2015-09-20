@@ -11,9 +11,19 @@ abstract class Route
 
     public function __construct()
     {
+        Session::start();
         $this->view = new View();
         $this->db   = Database::getInstance();
     }
 
     abstract public function index();
+
+    public function redirect($location)
+    {
+        if (!isset($location)) {
+            return;
+        }
+        var_dump('Location: ' . $location);
+        header('Location: ' . $location);
+    }
 }

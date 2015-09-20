@@ -9,7 +9,7 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/industrytool.css">
+    <script type="text/javascript" src="/js/vendor/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -17,45 +17,52 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 <div class="container">
-    <header>
-        <nav>
-            <ul>
-                <?php $active = $_SESSION['active'] ?>
+    <header class="site-header" role="banner">
+        <div class="site-brand">
+            <h2 class="logo">Industry Tool 2</h2>
+            <button id="main-btn" class="menu-btn right">Menu</button>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <ul class="primary-menu">
+            <?php $active = $_SESSION['active'] ?>
+            <li>
+                <a href="/" target="_top" <?php echo $active == 'home' ? "class='active'" : ''; ?>>Home</a>
+            </li>
+            <li>
+                <a href="/about" target="_top" <?php echo $active == 'about' ? "class='active'" : ''; ?>>About</a>
+            </li>
+            <li>
+                <a href="/contact"
+                   target="_top" <?php echo $active == 'contact' ? "class='active'" : ''; ?>>Contact</a>
+            </li>
+            <?php if (!isset($_SESSION['user'])) : ?>
                 <li>
-                    <a href="/" target="_top" <?php echo $active == 'home' ? "class='active'" : ''; ?>>Home</a>
+                    <a href="/login"
+                       target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>
                 </li>
+            <?php else: ?>
                 <li>
-                    <a href="/about" target="_top" <?php echo $active == 'about' ? "class='active'" : ''; ?>>About</a>
+                    <a href="/logout" target="_top">Logout</a>
                 </li>
-                <li>
-                    <a href="/contact"
-                       target="_top" <?php echo $active == 'contact' ? "class='active'" : ''; ?>>Contact</a>
-                </li>
-                <?php if (!isset($_SESSION['user'])) : ?>
-                    <li>
-                        <a href="/login"
-                           target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>
-                    </li>
-                <?php else: ?>
-                    <li>
-                        <a href="/logout" target="_top">Logout</a>
-                    </li>
-                <?php endif; ?>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['role'])): ?>
                 <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'owner'): ?>
                     <li>
                         <a href="/admin" <?php echo $_SESSION['active'] == 'admin' ? "class='active'" : ''; ?>>Admin</a>
                     </li>
                 <?php endif; ?>
-                <li class="welcome">
-                    <p>Welcome, <?php echo $_SESSION['user'] ? $_SESSION['user'] . '!' : 'guest!'; ?></p>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <?php echo $this->_html; ?>
-
+            <?php endif; ?>
+            <!--<li class="welcome">
+                    <p>Welcome, <?php /*echo $_SESSION['user'] ? $_SESSION['user'] . '!' : 'guest!'; */?></p>
+                </li>-->
+        </ul>
+    </nav>
+    <div class="content">
+        <?php echo $this->_html; ?>
+    </div>
 </div>
 
+<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>

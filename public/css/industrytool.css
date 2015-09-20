@@ -92,35 +92,4 @@ nav a:hover {
     color: #394655;
 }
 
-@media screen and (min-width: 600px) {
-    nav li {
-        width: 100px;
-        border-bottom: none;
-        height: 50px;
-        line-height: 50px;
-        font-size: 1.2em;
-        display: inline-block;
-        margin-right: -4px;
-    }
-
-    .welcome {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 670px) {
-    .welcome {
-        width: 202px;
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-    
-    .welcome p{
-        margin: 0;
-        font-size: 0.9em;
-        color: #fff;
-    }
-}
 

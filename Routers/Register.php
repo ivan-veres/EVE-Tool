@@ -7,7 +7,6 @@ class Register extends Route
     public function __construct()
     {
         parent::__construct();
-        Session::start();
         Session::set('active', '');
     }
 
@@ -38,7 +37,7 @@ class Register extends Route
             die($e->getMessage());
         }
 
-        header('Location: /login');
+        $this->redirect('/login');
 
     }
 }

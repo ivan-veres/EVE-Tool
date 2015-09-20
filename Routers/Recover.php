@@ -6,7 +6,6 @@ class Recover extends Route
     public function __construct()
     {
         parent::__construct();
-        Session::start();
         Session::set('active', '');
     }
 
@@ -22,7 +21,7 @@ class Recover extends Route
                     'uid' => $uid
                 ));
             if (!$user >= 1) {
-                header('Location: /');
+                $this->redirect('/');
             }
         } catch (PDOException $e) {
             die($e->getMessage());
@@ -61,11 +60,11 @@ class Recover extends Route
 
             // TODO: Flash msg = Password successfully changed
 
-            return header('Location: /login');
+            $this->redirect('/login');
         }
 
         // TODO: Flash msg = Something went wrong! Please try again!
 
-        header('Location: /');
+        $this->redirect('/');
     }
 }
