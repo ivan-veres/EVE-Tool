@@ -181,3 +181,9 @@ button {
 .primary-menu .active {
     background-color: #fff;
 }
+
+/* Content */
+
+.content {
+    padding: 15px 25px;
+}

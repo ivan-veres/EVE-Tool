@@ -1,0 +1,19 @@
+<div class="settings-panel">
+    <h2>Api Key Management</h2>
+    <form method="POST" action="settings/save">
+        <div>
+            <label for="keyid">Key ID:</label>
+            <input type="text" name="keyid" value="<?php echo isset($this->keyID) ? $this->keyID : '' ?>" required>
+        </div>
+        <div>
+            <label for="veCode">Verification Code:</label>
+            <input type="text" name="verCode" value="<?php echo isset($this->verificationCode) ? $this->verificationCode : '' ?>" required>
+        </div>
+        <div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
+<?php if (isset($this->post)) {
+    var_dump($this->post);
+}

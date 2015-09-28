@@ -23,7 +23,7 @@ abstract class Route
         if (!isset($location)) {
             return;
         }
-        var_dump('Location: ' . $location);
+
         header('Location: ' . $location);
     }
 }

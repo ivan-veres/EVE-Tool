@@ -34,10 +34,12 @@ class Login extends Route
         $this->password = $_POST['password'];
 
         try {
-            $this->user = $this->db->query('SELECT * FROM users WHERE username = :username', array('username' => $this->username));
+            $this->user = $this->db->query('SELECT * FROM users WHERE username = :username',
+                array('username' => $this->username));
 
             if ($this->user['password'] === md5($this->username . $this->password)) {
                 Session::start();
+                Session::set('id', $this->user['id']);
                 Session::set('user', $this->user['username']);
                 Session::set('role', $this->user['role']);
 

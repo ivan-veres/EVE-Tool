@@ -32,18 +32,18 @@
             <li>
                 <a href="/about" target="_top" <?php echo $active == 'about' ? "class='active'" : ''; ?>>About</a>
             </li>
-            <li>
-                <a href="/contact"
-                   target="_top" <?php echo $active == 'contact' ? "class='active'" : ''; ?>>Contact</a>
-            </li>
-            <?php if (!isset($_SESSION['user'])) : ?>
+            <?php if (isset($_SESSION['user'])) : ?>
                 <li>
-                    <a href="/login"
-                       target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>
+                    <a href="/settings"
+                       target="_top" <?php echo $active == 'settings' ? "class='active'" : ''; ?>>Settings</a>
+                </li>
+                <li>
+                    <a href="/logout" target="_top">Logout</a>
                 </li>
             <?php else: ?>
                 <li>
-                    <a href="/logout" target="_top">Logout</a>
+                    <a href="/login"
+                       target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>
                 </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['role'])): ?>
