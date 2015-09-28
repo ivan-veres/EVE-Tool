@@ -1,20 +1,9 @@
-<h3>Register on Industry Tool V2</h3>
-<div id="register">
+<div class="center">
+    <h1 class="form-header">Register</h1>
     <form method="POST" action="/register/submit">
-        <div>
-            <label for="email">Your Email:</label>
-            <input type="email" placeholder="Your Desired Email" name="email" required>
-        </div>
-        <div>
-            <label for="username">Your Username:</label>
-            <input type="text" placeholder="Your Desired Username" name="username" required>
-        </div>
-        <div>
-            <label for="password">Your Password:</label>
-            <input type="password" placeholder="Your Desired Password" name="password" required>
-        </div>
-        <div>
-            <button type="submit">Register</button>
-        </div>
+        <input class="input-form" type="email" placeholder="Your Email" name="email" required>
+        <input class="input-form" type="text" placeholder="Your Desired Username" name="username" required>
+        <input class="input-form" type="password" placeholder="Your Desired Password" name="password" required>
+        <button class="submit" type="submit">Register</button>
     </form>
 </div>
