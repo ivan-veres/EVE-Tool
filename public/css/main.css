@@ -32,7 +32,10 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 body {
+    height: 100%;
     line-height: 1;
+    background: -webkit-linear-gradient(top, #30364a 0%, #292f40 100%);
+    background: linear-gradient(top, #30364a 0%, #292f40 100%);
 }
 ol, ul {
     list-style: none;
@@ -50,6 +53,7 @@ table {
     border-spacing: 0;
 }
 html {
+    height: 100%;
     color: #222;
     font-size: 1em;
     line-height: 1.4;
@@ -199,6 +203,7 @@ button {
     display: block;
     width: 100%;
     background-color: #292f40;
+    margin-bottom: 25px;
 }
 
 .primary-menu li {
@@ -227,9 +232,7 @@ button {
 /* Content */
 
 .content {
-    background: -webkit-linear-gradient(top, #30364a 0%, #292f40 100%);
-    background: linear-gradient(top, #30364a 0%, #292f40 100%);
-    padding: 15px 25px;
+    padding: 35px 25px 15px 25px;
 }
 
 /* Login form */
