@@ -11,5 +11,6 @@
      */
     button.click(function() {
         menu.toggleClass('toggle-on');
+        button.toggleClass('menu-btn-active');
     });
 })($);

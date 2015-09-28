@@ -180,6 +180,10 @@ button {
     outline: none;
 }
 
+.menu-btn-active {
+    border-color: #ffffff;
+}
+
 
 /* Menu navigation */
 
@@ -194,7 +198,7 @@ button {
 .primary-menu {
     display: block;
     width: 100%;
-    background-color: #30364a;
+    background-color: #292f40;
 }
 
 .primary-menu li {
@@ -212,12 +216,12 @@ button {
 }
 
 .primary-menu li>a:hover {
-    background-color: #292f40;
-    color: #ffffff;
+    background-color: #11131a;
 }
 
 .primary-menu .active {
-    background-color: #292f40;
+    border-left: 5px solid #ff7403;
+    border-right: 5px solid #ff7403;
 }
 
 /* Content */
