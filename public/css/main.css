@@ -122,20 +122,27 @@ button {
 
 .site-header {
     padding: 1.3em;
-    background-color: #b3b3b3;
+    background-color: #30364a;
 }
 
 .site-brand {
     position: relative;
 }
 
-.logo {
+.logo a{
+    font-family: Oswald, sans-serif;
     font-size: 1.5em;
+    text-decoration: none;
+    color: #fff;
 }
 
 .menu-btn {
+    font-family: Oxygen, sans-serif;
     border: 1px solid #394655;
-    background-color: transparent;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    background-color: #292f40;
+    color: #fff;
     position: absolute;
     right: 0;
     top: 50%;
@@ -146,7 +153,23 @@ button {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
+    -webkit-transition: all .2s ease 0s;
+    -moz-transition: all .2s ease 0s;
+    -ms-transition: all .2s ease 0s;
+    -o-transition: all .2s ease 0s;
+    transition: all .2s ease 0s;
 }
+
+.menu-btn:hover {
+    border-color: #ffffff;
+}
+
+.menu-btn:focus {
+    outline: none;
+}
+
+
+/* Menu navigation */
 
 .main-nav {
     display: none;
@@ -159,7 +182,7 @@ button {
 .primary-menu {
     display: block;
     width: 100%;
-    background-color: #5b6f87;
+    background-color: #30364a;
 }
 
 .primary-menu li {
@@ -168,18 +191,21 @@ button {
 }
 
 .primary-menu li>a {
+    font-family: Oxygen, sans-serif;
+    text-decoration: none;
     display: block;
     height: 2.5em;
     line-height: 2.5em;
+    color: #ffffff;
 }
 
 .primary-menu li>a:hover {
-    background-color: #999;
-    color: #000;
+    background-color: #292f40;
+    color: #ffffff;
 }
 
 .primary-menu .active {
-    background-color: #fff;
+    background-color: #292f40;
 }
 
 /* Content */
