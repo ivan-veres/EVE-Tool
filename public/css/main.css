@@ -130,7 +130,7 @@ button {
     float: right;
 }
 
-.centre {
+.center {
     text-align: center;
 }
 
@@ -247,22 +247,18 @@ button {
     font-weight: 300;
 }
 
-.login {
-    text-align: center;
-}
-
-.login h1 {
+.form-header {
     font-size: 30px;
     font-family: 'Source Sans Pro', sans-serif;
     color: #ffffff;
 }
 
-.login form {
+form {
     padding: 20px 0;
     position: relative;
 }
 
-.login input {
+input.input-form {
     display: block;
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -278,16 +274,16 @@ button {
     text-align: center;
 }
 
-.login input:hover {
+.input-form:hover {
     background-color: #292f40;
 }
 
-.login input:focus {
+.input-form:focus {
     background-color: #ffffff;
     color: #000;
 }
 
-.login button {
+button.submit {
     width: 250px;
     border: 0;
     padding: 10px 15px;
@@ -305,13 +301,13 @@ button {
     margin: 0 auto 10px auto;
 }
 
-.login button:hover {
+button.submit:hover {
     -webkit-box-shadow: inset 0 0 10px #292f40;
     -moz-box-shadow: inset 0 0 10px #292f40;
     box-shadow: inset 0 0 10px #292f40;
 }
 
-.login button:focus {
+button.submit:focus {
     -webkit-box-shadow: inset 0 0 10px #292f40;
     -moz-box-shadow: inset 0 0 10px #292f40;
     box-shadow: inset 0 0 10px #292f40;
