@@ -14,3 +14,37 @@
         button.toggleClass('menu-btn-active');
     });
 })($);
+
+(function($){
+
+    var button = $('#btn-verify'),
+        keyid, verCode;
+
+    keyid = $('#keyid').val();
+    verCode = $('#verCode').val();
+
+    button.click(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.eveonline.com/account/APIKeyInfo.xml.aspx',
+            data: {keyID: keyid, vCode: verCode},
+            beforeSend: function() {
+                button.attr('disabled', true);
+            },
+            success: function(xml){
+                var am = $(xml).find('key').attr('accessMask');
+                console.log(am);
+
+                if (xml) {
+                    alert('OK!');
+                    button.attr('disabled', false);
+                }
+            },
+            error: function(e) {
+                console.log(e.responseText);
+                button.attr('disabled', false);
+            }
+        });
+    });
+})($);
