@@ -323,6 +323,7 @@ button.submit:focus {
 .form-bottom a {
     color: #ffffff;
     text-decoration: none;
+    font-family: Arial, sans-serif;
 }
 
 .btn-left {

@@ -36,7 +36,7 @@
                 var am = $(xml).find('key').attr('accessMask');
                 console.log(am);
 
-                if (xml) {
+                if (am) {
                     alert('OK!');
                     button.attr('disabled', false);
                 }
@@ -44,6 +44,7 @@
             error: function(e) {
                 console.log(e.responseText);
                 button.attr('disabled', false);
+                alert('Nop!');
             }
         });
     });
