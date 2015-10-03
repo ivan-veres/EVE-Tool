@@ -5,4 +5,6 @@
 
 ### Live Demo
 
-http://evetool.esy.es
+http://evetool.esy.es - **Mobile only**
+
+**Work in progress**
