@@ -3,7 +3,6 @@
 ## Evolve of the app
 
 
-### Setup
+### Live Demo
 
-1. **config.php** 
-   * set DB_HOST, DB_USER, DB_PASSWORD, DB_CHARSET, DB_NAME
+http://evetool.esy.es
