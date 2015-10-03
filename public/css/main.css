@@ -357,9 +357,9 @@ button.submit:focus {
 }
 
 .settings-panel input {
-    position: absolute;
-    left: 130px;
-    width: 68.5%;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
 }
 
 .settings-panel button {

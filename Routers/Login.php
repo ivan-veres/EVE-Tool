@@ -2,7 +2,7 @@
 
 /**
  * Class Login
- * @author: Ivan Vereš
+ * @author: Ivan Vereï¿½
  */
 
 class Login extends Route
@@ -76,7 +76,7 @@ class Login extends Route
                             'hash' => $hash,
                             'id' => $this->user['id']));
 
-                    mail($_POST['email'], 'Password recovery', "To reset your password visit this link: http://ind2.dev/recover/password/$hash");
+                    mail($_POST['email'], 'Password recovery', "To reset your password visit this link: " . BASE_URL . "/recover/password/$hash");
 
                     // TODO: Flash msg = Link to reset your password has been sent
                 } else {
