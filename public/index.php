@@ -2,14 +2,14 @@
 
 /**
  * file index.php
- * @author: Ivan Vereš
+ * @author: Ivan Vereï¿½
  */
 
 define('BASE_PATH', dirname(dirname(__FILE__)) . '/');
 
 define('BASE_URL', $_SERVER['HTTP_HOST']);
 
-require_once BASE_PATH . '/Library/Loader.php';
+require_once BASE_PATH . 'Library/Loader.php';
 require_once BASE_PATH . 'config.php';
 
 // Instantiate Router class
