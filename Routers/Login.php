@@ -12,13 +12,14 @@ class Login extends Route
     {
         parent::__construct();
         Session::set('active', 'login');
+
+        if (isset($_SESSION['user'])) {
+            $this->redirect('/');
+        }
     }
 
     public function index()
     {
-        if (isset($_SESSION['user'])) {
-            $this->redirect('/');
-        }
         $this->view->ses = $_SESSION;
         $this->view->render('login/login');
     }
@@ -76,7 +77,7 @@ class Login extends Route
                             'hash' => $hash,
                             'id' => $this->user['id']));
 
-                    mail($_POST['email'], 'Password recovery', "To reset your password visit this link: " . BASE_URL . "/recover/password/$hash");
+                    mail($_POST['email'], 'Password recovery', "To reset your password visit this link: http://" . BASE_URL . "/recover/password/$hash");
 
                     // TODO: Flash msg = Link to reset your password has been sent
                 } else {
