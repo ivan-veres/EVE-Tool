@@ -13,7 +13,7 @@ class Login extends Route
         parent::__construct();
         Session::set('active', 'login');
 
-        if (isset($_SESSION['user'])) {
+        if ( null != @Session::get('user')) {
             $this->redirect('/');
         }
     }

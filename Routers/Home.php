@@ -2,7 +2,7 @@
 
 /**
  * Class Home
- * @author: Ivan Vereš
+ * @author: Ivan Vereï¿½
  */
 
 class Home extends Route
