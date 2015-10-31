@@ -7,8 +7,7 @@ class Session
 
     public static function start()
     {
-        if (false === self::$_started)
-        {
+        if (false === self::$_started) {
             session_start();
             self::$_started = true;
         }
@@ -40,5 +39,17 @@ class Session
 
             session_destroy();
         }
+    }
+
+    public static function flash($type, $message)
+    {
+        self::set('flashClass', $type);
+        self::set('flashMessage', $message);
+    }
+
+    public static function destroyFlash()
+    {
+        unset($_SESSION['flashClass']);
+        unset($_SESSION['flashMessage']);
     }
 }

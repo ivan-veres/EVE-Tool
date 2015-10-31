@@ -380,3 +380,44 @@ button.submit:focus {
     transition: all .3s;
     margin: 0 auto 10px auto;
 }
+
+
+/* Flash Message */
+
+.flash {
+    padding: 15px 25px;
+    margin: 20px 25px;
+    color: #ffffff;
+    font-family: Tahoma, sans-serif;
+    border: 1px solid #ffffff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+button.close {
+    float: right;
+    line-height: 1;
+    color: #000000;
+    font-size: 21px;
+    opacity: .2;
+
+}
+
+.default {
+    border-color: #bce8f1;
+    background-color: #d9edf7;
+    color: #31708f;
+}
+
+.success {
+    border-color: #d6e9c6;
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.bad {
+    border-color: #ebccd1;
+    background-color: #f2dede;
+    color: #a94442;
+}

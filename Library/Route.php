@@ -3,9 +3,8 @@
 
 /**
  * Abstract Class Route
- * @author: Ivan Vereš
+ * @author: Ivan Vereï¿½
  */
-
 abstract class Route
 {
 
@@ -13,7 +12,7 @@ abstract class Route
     {
         Session::start();
         $this->view = new View();
-        $this->db   = Database::getInstance();
+        $this->db = Database::getInstance();
     }
 
     abstract public function index();
@@ -25,5 +24,10 @@ abstract class Route
         }
 
         header('Location: ' . $location);
+    }
+
+    public function flash($type, $message)
+    {
+        Session::flash($type, $message);
     }
 }

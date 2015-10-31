@@ -58,13 +58,11 @@ class Recover extends Route
                 die($e->getMessage());
             }
 
-            // TODO: Flash msg = Password successfully changed
-
+            Session::flash('success', 'Password successfully changed!!');
             $this->redirect('/login');
         }
 
-        // TODO: Flash msg = Something went wrong! Please try again!
-
+        Session::flash('bad', 'Something went wrong! Please try again!');
         $this->redirect('/');
     }
 }

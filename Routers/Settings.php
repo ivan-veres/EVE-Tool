@@ -57,8 +57,7 @@ class Settings extends Route
                 ));
         }
 
-        // TODO: Flash msg = Successfully added / modified api key!
-
+        Session::flash('success', 'Successfully added / modified api key!');
         $this->redirect('/settings');
     }
 }

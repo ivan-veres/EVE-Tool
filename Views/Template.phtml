@@ -58,9 +58,17 @@
                 </li>-->
         </ul>
     </nav>
+    <?php if(isset($_SESSION['flashClass'])): ?>
+    <div class="flash <?php echo $_SESSION['flashClass']?>">
+        <p><?php echo $_SESSION['flashMessage'] ?></p>
+    </div>
+    <?php Session::destroyFlash() ?>
+    <?php endif ?>
+
     <div class="content">
         <?php echo $this->_html; ?>
     </div>
+
 </div>
 
 <script type="text/javascript" src="/js/main.js"></script>

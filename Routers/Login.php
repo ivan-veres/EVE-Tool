@@ -50,7 +50,7 @@ class Login extends Route
                 ));
                 $this->redirect('/');
             } else {
-                // TODO: Flash msg = Wrong credentials!
+                Session::flash('bad', 'Wrond credentials!!');
                 $this->redirect('/login');
             }
         } catch (Exception $e) {
@@ -79,10 +79,10 @@ class Login extends Route
 
                     mail($_POST['email'], 'Password recovery', "To reset your password visit this link: http://" . BASE_URL . "/recover/password/$hash");
 
-                    // TODO: Flash msg = Link to reset your password has been sent
+                    Session::flash('success', 'Link to reset your password has been sent!');
                 } else {
 
-                    // TODO: Flash msg = Email You specified does not exist in our system
+                    Session::flash('bad', 'Email You specified does not exist in our system.');
                     $this->redirect('/login/forgot');
                 }
 
