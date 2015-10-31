@@ -25,9 +25,4 @@ abstract class Route
 
         header('Location: ' . $location);
     }
-
-    public function flash($type, $message)
-    {
-        Session::flash($type, $message);
-    }
 }

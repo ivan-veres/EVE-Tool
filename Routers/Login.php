@@ -69,28 +69,28 @@ class Login extends Route
     {
         if (!empty($_POST)) {
             try {
-                $hash = hash('sha256', $_POST['email'] . time());
-                $this->user = $this->db->query('SELECT id FROM users WHERE email = :email', array('email' => $_POST['email']));
+                $email = $_POST['email'];
+                $this->user = $this->db->query('SELECT id FROM users WHERE email = :email', array('email' => $email));
                 if ($this->user['id'] != false) {
+                    $hash = hash('sha256', $email . time());
                     $this->db->insert('UPDATE users SET recover = :hash WHERE id = :id',
                         array(
                             'hash' => $hash,
                             'id' => $this->user['id']));
 
-                    mail($_POST['email'], 'Password recovery', "To reset your password visit this link: http://" . BASE_URL . "/recover/password/$hash");
+                    mail($email, 'Password recovery', "To reset your password visit this link: http://" . BASE_URL . "/recover/password/$hash");
 
                     Session::flash('success', 'Link to reset your password has been sent!');
+                    $this->redirect('/login');
                 } else {
-
                     Session::flash('bad', 'Email You specified does not exist in our system.');
                     $this->redirect('/login/forgot');
                 }
 
-
             } catch (Exception $e) {
                 die($e->getMessage());
             }
-            //mail($_POST['email'], 'Password', '');
+
         }
 
         $this->view->render('login/forgot');
