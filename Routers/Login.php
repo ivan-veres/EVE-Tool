@@ -50,7 +50,7 @@ class Login extends Route
                 ));
                 $this->redirect('/');
             } else {
-                Session::flash('bad', 'Wrond credentials!!');
+                Session::flash('bad', 'Wrong credentials!!');
                 $this->redirect('/login');
             }
         } catch (Exception $e) {
