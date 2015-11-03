@@ -49,3 +49,10 @@
         });
     });
 })($);
+
+(function($){
+
+    var flash = $('.flash');
+
+    flash.delay(3000).fadeOut('slow');
+})($);

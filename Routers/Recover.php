@@ -59,10 +59,10 @@ class Recover extends Route
             }
 
             Session::flash('success', 'Password successfully changed!!');
-            $this->redirect('/login');
+            return $this->redirect('/login');
         }
 
         Session::flash('bad', 'Something went wrong! Please try again!');
-        $this->redirect('/');
+        return $this->redirect('/');
     }
 }

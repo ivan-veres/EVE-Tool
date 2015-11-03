@@ -71,6 +71,7 @@ class Login extends Route
             try {
                 $email = $_POST['email'];
                 $this->user = $this->db->query('SELECT id FROM users WHERE email = :email', array('email' => $email));
+                var_dump($this->user);
                 if ($this->user['id'] != false) {
                     $hash = hash('sha256', $email . time());
                     $this->db->insert('UPDATE users SET recover = :hash WHERE id = :id',
@@ -81,18 +82,18 @@ class Login extends Route
                     mail($email, 'Password recovery', "To reset your password visit this link: http://" . BASE_URL . "/recover/password/$hash");
 
                     Session::flash('success', 'Link to reset your password has been sent!');
-                    $this->redirect('/login');
+                    return $this->redirect('/login');
                 } else {
                     Session::flash('bad', 'Email You specified does not exist in our system.');
-                    $this->redirect('/login/forgot');
+                    return $this->redirect('/login/forgot');
                 }
 
             } catch (Exception $e) {
                 die($e->getMessage());
             }
-
         }
 
+        $this->view->post = $_POST;
         $this->view->render('login/forgot');
     }
 }
