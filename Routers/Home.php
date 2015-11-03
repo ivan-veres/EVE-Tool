@@ -2,7 +2,7 @@
 
 /**
  * Class Home
- * @author: Ivan Vere�
+ * @author: Ivan Veres
  */
 
 class Home extends Route
@@ -19,8 +19,8 @@ class Home extends Route
      */
     public function index()
     {
-        $this->view->ses = $_SESSION;
-        $this->view->md5 = md5('admin'.'testing');
+        $this->view->loggedIn = @Session::get('user') ? true : false;
+        $this->view->accountName = 'VengefulOne Immortalized';
         return $this->view->render('home/home');
     }
 }

@@ -1,2 +1,11 @@
-<pre><?php print_r($this->ses) ?></pre>
-<p><?php echo $this->md5 ?></p>
+<?php if($this->loggedIn): ?>
+<h1 id="content-header"><?php echo $this->accountName ?></h1>
+
+<img src="https://dl.dropboxusercontent.com/content_link/ki56MUVb1Y7cPFjWDu0bQB89N8thrJchSn0Le2XtzqNvleYgd0zYGyV0gGtsCIVf/file" />
+<h2>Account valid until:</h2>
+<p>5.11.2015</p>
+<h2>Status:</h2>
+<p>Expired</p>
+<?php else: ?>
+<h1 class="warning">Please <a href="/login">log in</a>!!</h1>
+<?php endif ?>

@@ -345,7 +345,7 @@ button.submit:focus {
 
 }
 
-.settings-panel h1 {
+#content-header {
     font-size: 24px;
     color: #ff7403;
 }
