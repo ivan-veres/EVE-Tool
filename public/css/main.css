@@ -139,6 +139,11 @@ button {
 * Actual styling going on here!
 */
 
+a {
+    color: #ff7403;
+    text-decoration: none;
+}
+
 /* Header */
 
 .site-header {
