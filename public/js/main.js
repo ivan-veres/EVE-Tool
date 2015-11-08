@@ -20,11 +20,10 @@
     var button = $('#btn-verify'),
         keyid, verCode;
 
-    keyid = $('#keyid').val();
-    verCode = $('#verCode').val();
-
     button.click(function(e){
         e.preventDefault();
+        keyid = $('#keyid').val();
+        verCode = $('#verCode').val();
         $.ajax({
             type: 'GET',
             url: 'https://api.eveonline.com/account/APIKeyInfo.xml.aspx',
@@ -33,10 +32,12 @@
                 button.attr('disabled', true);
             },
             success: function(xml){
-                var am = $(xml).find('key').attr('accessMask');
-                console.log(am);
+                var row = $(xml).find('row');
+                var caharID = row.attr('characterID');
+                var chaarName = row.attr('characterName');
+                console.log(chaarName);
 
-                if (am) {
+                if (caharID) {
                     alert('OK!');
                     button.attr('disabled', false);
                 }
