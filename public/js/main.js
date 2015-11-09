@@ -17,10 +17,12 @@
 
 (function($){
 
-    var button = $('#btn-verify'),
-        keyid, verCode;
+    var verify = $('#btn-verify');
+    var submit = $('#btn-submit');
+    var input = $('input');
+    var keyid, verCode;
 
-    button.click(function(e){
+    verify.click(function(e){
         e.preventDefault();
         keyid = $('#keyid').val();
         verCode = $('#verCode').val();
@@ -29,23 +31,27 @@
             url: 'https://api.eveonline.com/account/APIKeyInfo.xml.aspx',
             data: {keyID: keyid, vCode: verCode},
             beforeSend: function() {
-                button.attr('disabled', true);
+                verify.attr('disabled', true);
             },
             success: function(xml){
-                var row = $(xml).find('row');
-                var caharID = row.attr('characterID');
-                var chaarName = row.attr('characterName');
-                console.log(chaarName);
+                var error = $(xml).find('error');
 
-                if (caharID) {
-                    alert('OK!');
-                    button.attr('disabled', false);
+                if (!error.length > 0) {
+                    var charId = $(xml).find('row').attr('characterID');
+                    var charName = $(xml).find('row').attr('characterName');
+
+                    input.eq(2).val(charId)
+                    input.eq(3).val(charName)
+
+                    alert('Api key OK!');
+
+                    verify.attr('disabled', false);
+                    submit.attr('disabled', false);
                 }
             },
-            error: function(e) {
-                console.log(e.responseText);
-                button.attr('disabled', false);
-                alert('Nop!');
+            error: function() {
+                verify.attr('disabled', false);
+                alert('Wrong Api key!');
             }
         });
     });

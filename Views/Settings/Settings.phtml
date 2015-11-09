@@ -10,10 +10,12 @@
             <input type="text" name="verCode" id="verCode" value="<?php echo isset($this->verificationCode) ? $this->verificationCode : '' ?>" required>
         </div>
         <div class="row">
-            <button class="btn-left" type="submit">Save</button>
+            <button id="btn-submit" class="btn-left" type="submit" disabled>Save</button>
         </div>
         <div class="row">
             <button id="btn-verify" class="btn-right">Verify</button>
         </div>
+        <input type="hidden" name="characterId">
+        <input type="hidden" name="characterName">
     </form>
 </div>

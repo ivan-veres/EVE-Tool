@@ -1,11 +1,30 @@
-<?php if($this->loggedIn): ?>
-<h1 id="content-header"><?php echo $this->accountName ?></h1>
-
-<img src="https://dl.dropboxusercontent.com/content_link/ki56MUVb1Y7cPFjWDu0bQB89N8thrJchSn0Le2XtzqNvleYgd0zYGyV0gGtsCIVf/file" />
-<h2>Account valid until:</h2>
-<p>5.11.2015</p>
-<h2>Status:</h2>
-<p>Expired</p>
+<?php if(!$this->loggedIn): ?>
+    <h1 class="warning">Please <a href="/login">log in</a>!!</h1>
 <?php else: ?>
-<h1 class="warning">Please <a href="/login">log in</a>!!</h1>
+    <h1 id="content-header"><?php echo $this->accountName ?></h1>
+    <button>Refresh</button>
+    <img src="<?php echo $this->portraitPath ?>" />
+    <h2>Account valid until:</h2>
+    <p>5.11.2015</p>
+    <h2>Status:</h2>
+    <p>Expired</p>
+    <script>
+        var validUntil = $('.content p').eq(0);
+        var status = $('.content p').eq(1);
+        var keyid = '<?php echo $this->apiInformation['keyid'] ?>';
+        var verCode = '<?php echo $this->apiInformation['verification_code'] ?>';
+
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.eveonline.com/account/AccountStatus.xml.aspx',
+            data: {keyID: keyid, vCode: verCode},
+            success: function(xml){
+                var paidUntil = new Date($(xml).find('paidUntil').text()).toUTCString();
+                validUntil.text(paidUntil);
+            },
+            error: function(e) {
+                console.log(e.responseText);
+            }
+        });
+    </script>
 <?php endif ?>

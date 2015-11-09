@@ -13,6 +13,7 @@ abstract class Route
         Session::start();
         $this->view = new View();
         $this->db = Database::getInstance();
+        $this->helper = new Helper();
     }
 
     abstract public function index();
