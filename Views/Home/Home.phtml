@@ -2,15 +2,14 @@
     <h1 class="warning">Please <a href="/login">log in</a>!!</h1>
 <?php else: ?>
     <h1 id="content-header"><?php echo $this->accountName ?></h1>
-    <button>Refresh</button>
     <img src="<?php echo $this->portraitPath ?>" />
     <h2>Account valid until:</h2>
-    <p>5.11.2015</p>
+    <p></p>
     <h2>Status:</h2>
-    <p>Expired</p>
+    <p></p>
     <script>
         var validUntil = $('.content p').eq(0);
-        var status = $('.content p').eq(1);
+        var accountStatus = $('.content p').eq(1);
         var keyid = '<?php echo $this->apiInformation['keyid'] ?>';
         var verCode = '<?php echo $this->apiInformation['verification_code'] ?>';
 
@@ -19,8 +18,16 @@
             url: 'https://api.eveonline.com/account/AccountStatus.xml.aspx',
             data: {keyID: keyid, vCode: verCode},
             success: function(xml){
-                var paidUntil = new Date($(xml).find('paidUntil').text()).toUTCString();
-                validUntil.text(paidUntil);
+                var paidUntil = new Date($(xml).find('paidUntil').text());
+                var now = Date.now();
+                validUntil.text(paidUntil.toUTCString());
+                accountStatus.text(function(){
+                    var diff = parseInt((paidUntil.getTime() - now)/86400000);
+                    if(diff < 0){
+                       return 'Expired';
+                    }
+                    return 'Account expires in '+diff+' days';
+                })
             },
             error: function(e) {
                 console.log(e.responseText);
