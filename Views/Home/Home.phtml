@@ -1,8 +1,10 @@
 <?php if(!$this->loggedIn): ?>
     <h1 class="warning">Please <a href="/login">log in</a>!!</h1>
+<?php elseif($this->apiInformation === false): ?>
+    <h1 class="warning">Please go to <a href="/settings">settings</a>, and add an API Key!</h1>
 <?php else: ?>
     <h1 id="content-header"><?php echo $this->accountName ?></h1>
-    <img src="<?php echo $this->portraitPath ?>" />
+    <img class="portrait" src="<?php echo $this->portraitPath ?>" />
     <h2>Account valid until:</h2>
     <p></p>
     <h2>Status:</h2>

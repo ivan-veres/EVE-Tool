@@ -19,9 +19,9 @@ class Home extends Route
      */
     public function index()
     {
-        $this->view->loggedIn = @Session::get('user') ? true : false;
-        $this->view->accountName = $this->helper->getCharacterName();
-        $this->view->portraitPath = $this->helper->getPortraitImage();
+        $this->view->loggedIn       = @Session::get('user') ? true : false;
+        $this->view->accountName    = $this->helper->getCharacterName();
+        $this->view->portraitPath   = $this->helper->getPortraitImage();
         $this->view->apiInformation = $this->helper->getApiInformation();
         return $this->view->render('home/home');
     }
