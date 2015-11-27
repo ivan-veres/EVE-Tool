@@ -1,7 +1,20 @@
-# Industry Tool V2
+# EVE Tool
 
-## Evolve of the app
+## #Tracks
+### https://github.com/ivan-veres/Tracks
 
+## About
+
+Small PHP application written on top of my tiny PHP framework
+called 'Tracks'. Application is used to track EVE Online
+account remaining time.
+
+## Features
+
+- User login
+- User recovery
+- EVE Online API calls
+- EVE Online account subscription status
 
 ### Live Demo
 
