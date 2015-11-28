@@ -365,10 +365,6 @@ button.submit:focus {
 
 /* Settings Panel */
 
-.settings-panel {
-
-}
-
 .row {
     position: relative;
     display: block;
@@ -439,4 +435,34 @@ button.close {
     border-color: #ebccd1;
     background-color: #f2dede;
     color: #a94442;
+}
+
+@media only screen and (min-width: 500px) {
+
+    .settings-panel {
+        width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 840px) {
+
+    .menu-btn {
+        display: none;
+    }
+    .main-nav {
+        position: absolute;
+        top: 13px;
+        right: 30px;
+        display: block;
+    }
+
+    .primary-menu li{
+        float: left;
+        margin: 0 10px;
+    }
+
+    .primary-menu li>a {
+        padding: 0 10px;
+    }
 }

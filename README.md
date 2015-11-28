@@ -20,4 +20,12 @@ account remaining time.
 
 http://evetool.esy.es - **Mobile only**
 
-**Work in progress**
+You can log in with following (username@password) to access
+website full features.
+
+**guest@guest**
+
+Or you can create account, but
+without EVE API you can not see full website.
+
+###### Work in progress

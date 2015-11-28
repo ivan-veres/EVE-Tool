@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Industry Tool V2</title>
+    <title>EVE Tool</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,37 +19,37 @@
 <div class="container">
     <header class="site-header" role="banner">
         <div class="site-brand">
-            <h2 class="logo"><a href="/">Industry Tool 2</a></h2>
+            <h2 class="logo"><a href="/">EVE Tool</a></h2>
             <button id="main-btn" class="menu-btn right">Menu</button>
         </div>
     </header>
     <nav class="main-nav">
         <ul class="primary-menu">
             <?php $active = $_SESSION['active'] ?>
-            <li>
-                <a href="/" target="_top" <?php echo $active == 'home' ? "class='active'" : ''; ?>>Home</a>
+            <li <?php echo $active == 'home' ? "class='active'" : ''; ?>>
+                <a href="/" target="_top">Home</a>
             </li>
-            <li>
-                <a href="/about" target="_top" <?php echo $active == 'about' ? "class='active'" : ''; ?>>About</a>
+            <li <?php echo $active == 'about' ? "class='active'" : ''; ?>>
+                <a href="/about" target="_top">About</a>
             </li>
             <?php if (isset($_SESSION['user'])) : ?>
-                <li>
+                <li <?php echo $active == 'settings' ? "class='active'" : ''; ?>>
                     <a href="/settings"
-                       target="_top" <?php echo $active == 'settings' ? "class='active'" : ''; ?>>Settings</a>
+                       target="_top">Settings</a>
                 </li>
                 <li>
                     <a href="/logout" target="_top">Logout</a>
                 </li>
             <?php else: ?>
-                <li>
+                <li <?php echo $active == 'login' ? "class='active'" : ''; ?>>
                     <a href="/login"
-                       target="_top" <?php echo $active == 'login' ? "class='active'" : ''; ?>>Login</a>
+                       target="_top">Login</a>
                 </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['role'])): ?>
                 <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'owner'): ?>
-                    <li>
-                        <a href="/admin" <?php echo $_SESSION['active'] == 'admin' ? "class='active'" : ''; ?>>Admin</a>
+                    <li <?php echo $_SESSION['active'] == 'admin' ? "class='active'" : ''; ?>>
+                        <a href="/admin">Admin</a>
                     </li>
                 <?php endif; ?>
             <?php endif; ?>

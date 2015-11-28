@@ -16,24 +16,24 @@
         var verCode = '<?php echo $this->apiInformation['verification_code'] ?>';
 
         $.ajax({
-            type: 'GET',
-            url: 'https://api.eveonline.com/account/AccountStatus.xml.aspx',
-            data: {keyID: keyid, vCode: verCode},
-            success: function(xml){
-                var paidUntil = new Date($(xml).find('paidUntil').text());
+            "type": "GET",
+            "url": "https://api.eveonline.com/account/AccountStatus.xml.aspx",
+            "data": {keyID: keyid, vCode: verCode},
+            "content-type": "application/json; charset=utf-8",
+            "dataType": "text",
+            "success": function(xml){
+                var paidUntil = new Date($(xml).find("paidUntil").text().replace(/-/g, '/'));
                 var now = Date.now();
                 validUntil.text(paidUntil.toUTCString());
                 accountStatus.text(function(){
                     var diff = parseInt((paidUntil.getTime() - now)/86400000);
                     if(diff < 0){
-                       return 'Expired';
+                        return "Expired";
                     }
-                    return 'Account expires in '+diff+' days';
-                })
-            },
-            error: function(e) {
+                    return "Account expires in "+diff+" days";
+                })},
+            "error": function(e) {
                 console.log(e.responseText);
-            }
-        });
+            }});
     </script>
 <?php endif ?>
