@@ -15,10 +15,11 @@ account remaining time.
 - User recovery
 - EVE Online API calls
 - EVE Online account subscription status
+- Responsive design (works on mobile devices)
 
 ### Live Demo
 
-http://evetool.esy.es - **Mobile only**
+http://evetool.esy.es
 
 You can log in with following (username@password) to access
 website full features.
@@ -27,5 +28,3 @@ website full features.
 
 Or you can create account, but
 without EVE API you can not see full website.
-
-###### Work in progress
